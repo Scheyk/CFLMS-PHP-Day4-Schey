@@ -2,7 +2,7 @@
 	ob_start();
 	session_start(); // start a new session or continues the previous
 
-	if(isset($_SESSION['user']) ! = "") {
+	if(isset($_SESSION['user'])!=""){
 		header("location: home.php"); // redirects to home.php
 	}
 
@@ -38,7 +38,7 @@
  	}
 
  	//basic email validation
-  	if ( !filter_var($email,FILTER_VALIDATE_EMAIL) ) {
+  	if (!filter_var($email,FILTER_VALIDATE_EMAIL) ) {
   		$error = true;
   		$emailError = "Please enter valid email address." ;
  	} else {
@@ -50,7 +50,6 @@
    			$error = true;
   	 		$emailError = "Provided Email is already in use.";
   		}
- 	}
 
  	// password validation
   	if (empty($pass)){
@@ -65,9 +64,9 @@
 	$password = hash('sha256', $pass);
 
 	// if there's no error, continue to signup
- 	if( !$error ) {
+ 	if(!$error) {
  
-  		$query = "INSERT INTO `user` (`userName`,`userEmail`,`userPass`) VALUES('$name','$email','$password')";
+  		$query = "INSERT INTO `user`(`userName`,`userEmail`,`userPass`) VALUES('$name','$email','$password')";
   		$res = mysqli_query($conn, $query);
  
   		if ($res) {
@@ -80,7 +79,7 @@
    				$errTyp = "danger";
    				$errMSG = "Something went wrong, try again later..." ;
   				} 
- 		}
+		 }
 	}
 ?>
 

@@ -4,7 +4,7 @@
 	require_once 'db_connect.php';
 	
 	// if session is not set this will redirect to login page
-	if( !isset($_SESSION['user' ]) ) {
+	if(!isset($_SESSION['user'])){
 	 header("Location: index.php");
 	 exit;
 	}
@@ -17,13 +17,13 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Welcome-<?php echo $userRow['userEmail' ];?></title>
+		<title>Welcome-<?php echo $userRow['userEmail'];?></title>
 	</head>
 	<body>
 
 	    Hi <?php echo $userRow['userEmail']; ?>
 	           
-	    <a  href="logout.php?logout">Sign Out</a>     
+	    <a href="logout.php?logout">Sign Out</a>     
 	 
 	</body>
 </html>
